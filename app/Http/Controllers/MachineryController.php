@@ -14,7 +14,8 @@ class MachineryController extends Controller
      */
     public function index()
     {
-        //
+        return Machinery::query()
+            ->paginate(request()->perPage ?? $this->perPage);
     }
 
     /**
@@ -35,7 +36,11 @@ class MachineryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $machinery = Machinery::create(
+            $request->only(['name', 'type'])
+        );
+
+        return $machinery;
     }
 
     /**
@@ -46,7 +51,7 @@ class MachineryController extends Controller
      */
     public function show(Machinery $machinery)
     {
-        //
+        return $machinery;
     }
 
     /**
@@ -69,7 +74,11 @@ class MachineryController extends Controller
      */
     public function update(Request $request, Machinery $machinery)
     {
-        //
+        $machinery->update(
+            $request->only(['name', 'type'])
+        );
+
+        return $machinery;
     }
 
     /**
@@ -80,6 +89,7 @@ class MachineryController extends Controller
      */
     public function destroy(Machinery $machinery)
     {
-        //
+        Machinery::destroy($machinery->id);
+        return response()->json(null, 204);
     }
 }
