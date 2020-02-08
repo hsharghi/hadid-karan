@@ -7,4 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Job extends Model
 {
     protected $guarded = [];
+
+    const JOB_TYPES = ['INQUIRY', 'NORMAL'];
+
 }
