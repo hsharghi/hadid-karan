@@ -14,7 +14,8 @@ class WorkerController extends Controller
      */
     public function index()
     {
-        //
+        return Worker::query()
+            ->paginate(request()->perPage ?: $this->perPage);
     }
 
     /**
@@ -35,7 +36,11 @@ class WorkerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $worker = Worker::create(
+            $request->only(['name', 'employee_number'])
+        );
+
+        return $worker;
     }
 
     /**
@@ -46,7 +51,7 @@ class WorkerController extends Controller
      */
     public function show(Worker $worker)
     {
-        //
+        return $worker;
     }
 
     /**
@@ -57,7 +62,7 @@ class WorkerController extends Controller
      */
     public function edit(Worker $worker)
     {
-        //
+        return $worker;
     }
 
     /**
@@ -69,7 +74,11 @@ class WorkerController extends Controller
      */
     public function update(Request $request, Worker $worker)
     {
-        //
+        $worker->update(
+            $request->only(['name', 'employee_number'])
+        );
+
+        return $worker;
     }
 
     /**
@@ -80,6 +89,7 @@ class WorkerController extends Controller
      */
     public function destroy(Worker $worker)
     {
-        //
+        Worker::destroy($worker->id);
+        return response()->json(null, 204);
     }
 }
