@@ -8,4 +8,5 @@ class Machinery extends Model
 {
     protected $guarded = [];
 
+    const MACHINERY_TYPES = ['CNC', 'MANUAL', 'MC'];
 }
