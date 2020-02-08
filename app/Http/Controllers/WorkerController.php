@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\WorkerStoreRequest;
 use App\Worker;
-use Illuminate\Http\Request;
 
 class WorkerController extends Controller
 {
@@ -31,10 +31,10 @@ class WorkerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\WorkerStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(WorkerStoreRequest $request)
     {
         $worker = Worker::create(
             $request->only(['name', 'employee_number'])
@@ -68,11 +68,11 @@ class WorkerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\WorkerStoreRequest  $request
      * @param  \App\Worker  $worker
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Worker $worker)
+    public function update(WorkerStoreRequest $request, Worker $worker)
     {
         $worker->update(
             $request->only(['name', 'employee_number'])

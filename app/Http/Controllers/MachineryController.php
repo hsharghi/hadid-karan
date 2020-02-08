@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MachineryStoreRequest;
 use App\Machinery;
-use Illuminate\Http\Request;
 
 class MachineryController extends Controller
 {
@@ -31,10 +31,10 @@ class MachineryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\MachineryStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MachineryStoreRequest $request)
     {
         $machinery = Machinery::create(
             $request->only(['name', 'type'])
@@ -68,11 +68,11 @@ class MachineryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\MachineryStoreRequest  $request
      * @param  \App\Machinery  $machinery
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Machinery $machinery)
+    public function update(MachineryStoreRequest $request, Machinery $machinery)
     {
         $machinery->update(
             $request->only(['name', 'type'])

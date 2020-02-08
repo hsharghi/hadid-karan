@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\JobStoreRequest;
 use App\Job;
-use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
@@ -31,10 +31,10 @@ class JobController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\JobStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(JobStoreRequest $request)
     {
         $job = Job::create(
             $request->only([
@@ -77,11 +77,11 @@ class JobController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\JobStoreRequest  $request
      * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Job $job)
+    public function update(JobStoreRequest $request, Job $job)
     {
         $job->update(
             $request->only([
