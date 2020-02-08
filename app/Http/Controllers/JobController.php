@@ -14,7 +14,8 @@ class JobController extends Controller
      */
     public function index()
     {
-        //
+        Job::query()
+            ->paginate(request()->perPage ?? $this->perPage);
     }
 
     /**
@@ -35,7 +36,20 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $job = Job::create(
+            $request->only([
+                'title',
+                'customer_name',
+                'inquiry_number',
+                'type',
+                'amount',
+                'quantity',
+                'material',
+                'weight',
+            ])
+        );
+
+        return $job;
     }
 
     /**
@@ -46,7 +60,7 @@ class JobController extends Controller
      */
     public function show(Job $job)
     {
-        //
+        return $job;
     }
 
     /**
@@ -69,7 +83,20 @@ class JobController extends Controller
      */
     public function update(Request $request, Job $job)
     {
-        //
+        $job->update(
+            $request->only([
+                'title',
+                'customer_name',
+                'inquiry_number',
+                'type',
+                'amount',
+                'quantity',
+                'material',
+                'weight',
+                ])
+        );
+
+        return $job;
     }
 
     /**
@@ -80,6 +107,7 @@ class JobController extends Controller
      */
     public function destroy(Job $job)
     {
-        //
+        Job::destroy($job->id);
+        return response()->json(null, 204);
     }
 }
