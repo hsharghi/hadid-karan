@@ -13,7 +13,7 @@ Laravel docker app
 **parameters**
 - `page` optional (defautl = 1)
 - `perPage` optional (default = 15)
-
+- `sort=parameter_name[,sort_order=asc]` optional (`sort=name,desc` or `sort=created_at`)
 
 #### Create new worker
 `POST /api/workers`
@@ -37,6 +37,7 @@ Laravel docker app
 **parameters**
 - `page` optional (defautl = 1)
 - `perPage` optional (default = 15)
+- `sort=parameter_name[,sort_order=asc]` optional (`sort=name,desc` or `sort=created_at`)
 
 #### Create new worker
 `POST /api/machineries`
@@ -61,6 +62,7 @@ Laravel docker app
 **parameters**
 - `page` optional (defautl = 1)
 - `perPage` optional (default = 15)
+- `sort=parameter_name[,sort_order=asc]` optional (`sort=title,desc` or `sort=created_at`)
 
 #### Create new job
 `POST /api/jobs`
