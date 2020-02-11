@@ -14,7 +14,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        Job::query()
+        return Job::query()
             ->paginate(request()->perPage ?? $this->perPage);
     }
 
