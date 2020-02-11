@@ -20,9 +20,7 @@ class Controller extends BaseController
     }
 
     public function order(Builder $builder) {
-        $order = request()->order ?? '';
-
-        $orders = explode('|', $order);
+        $orders = explode('|', request()->sort ?? '');
 
         foreach ($orders as $order) {
             $order = explode(',', $order);
