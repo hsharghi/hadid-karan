@@ -14,8 +14,10 @@ class MachineryController extends Controller
      */
     public function index()
     {
-        return Machinery::query()
-            ->paginate(request()->perPage ?? $this->perPage);
+        $queryBuilder = $this->order(Machinery::query());
+        return $queryBuilder->paginate(
+            request()->perPage ?? $this->perPage
+        );
     }
 
     /**

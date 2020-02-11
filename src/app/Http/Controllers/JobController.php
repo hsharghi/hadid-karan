@@ -14,8 +14,10 @@ class JobController extends Controller
      */
     public function index()
     {
-        return Job::query()
-            ->paginate(request()->perPage ?? $this->perPage);
+        $queryBuilder = $this->order(Job::query());
+        return $queryBuilder->paginate(
+            request()->perPage ?? $this->perPage
+        );
     }
 
     /**

@@ -14,8 +14,10 @@ class WorkerController extends Controller
      */
     public function index()
     {
-        return Worker::query()
-            ->paginate(request()->perPage ?? $this->perPage);
+        $queryBuilder = $this->order(Worker::query());
+        return $queryBuilder->paginate(
+            request()->perPage ?? $this->perPage
+        );
     }
 
     /**
