@@ -34,7 +34,7 @@ services:
       MYSQL_ROOT_PASSWORD: hadi2400
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
-      TZ: Asian/Tehran
+      TZ: Asia/Tehran
     networks:
       - laravel
 
