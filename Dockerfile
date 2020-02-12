@@ -9,6 +9,8 @@ COPY ./run.sh /tmp
 COPY ./wait-for /
 
 CMD /wait-for mysql:3306 -- echo "eyval db ready"
+RUN chown -R www-data:www-data /var/www
+RUN chmod -R 755 /var/www
 
 ENTRYPOINT ["/tmp/run.sh"]
 
