@@ -75,6 +75,8 @@ Laravel docker app
 - `quantity` integer 
 - `material` string (optional)
 - `weight` string (optional)
+- `start_date` date (optional) format: `2020-10-17` 
+- `end_date` date (optional) format: `2020-11-18`
 
 #### Update a job
 `PUT /api/jobs/{id}`
