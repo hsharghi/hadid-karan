@@ -9,4 +9,9 @@ class Machinery extends Model
     protected $guarded = [];
 
     const MACHINERY_TYPES = ['CNC', 'MANUAL', 'MC'];
+
+    public function getTypeAttribute($value)
+    {
+        return strtoupper($value);
+    }
 }

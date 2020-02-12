@@ -10,4 +10,8 @@ class Job extends Model
 
     const JOB_TYPES = ['INQUIRY', 'NORMAL'];
 
+    public function getTypeAttribute($value)
+    {
+        return strtoupper($value);
+    }
 }
