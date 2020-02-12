@@ -33,6 +33,8 @@ class JobStoreRequest extends FormRequest
             'quantity' => 'nullable|numeric',
             'material' => 'nullable',
             'weight' => 'nullable',
+            'start_date' => 'nullable|date',
+            'end_date' => 'nullable|date|after:start_date',
         ];
     }
 }

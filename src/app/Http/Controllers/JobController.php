@@ -48,6 +48,8 @@ class JobController extends Controller
                 'quantity',
                 'material',
                 'weight',
+                'start_date',
+                'end_date',
             ])
         );
 
@@ -95,6 +97,8 @@ class JobController extends Controller
                 'quantity',
                 'material',
                 'weight',
+                'start_date',
+                'end_date',
                 ])
         );
 
