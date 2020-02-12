@@ -14,3 +14,6 @@ RUN chmod -R 755 /var/www
 
 ENTRYPOINT ["/tmp/run.sh"]
 
+ENV TZ=Asian/Tehran
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN printf '[PHP]\ndate.timezone = "Asia/Tehran"\n' > /usr/local/etc/php/conf.d/tzone.ini
