@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MachineryStoreRequest;
+use App\Http\Requests\MachineryUpdateRequest;
 use App\Machinery;
 
 class MachineryController extends Controller
@@ -74,7 +75,7 @@ class MachineryController extends Controller
      * @param  \App\Machinery  $machinery
      * @return \Illuminate\Http\Response
      */
-    public function update(MachineryStoreRequest $request, Machinery $machinery)
+    public function update(MachineryUpdateRequest $request, Machinery $machinery)
     {
         $machinery->update(
             $request->only(['name', 'type'])

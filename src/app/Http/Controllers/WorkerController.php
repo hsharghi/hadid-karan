@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\WorkerStoreRequest;
+use App\Http\Requests\WorkerUpdateRequest;
 use App\Worker;
 
 class WorkerController extends Controller
@@ -74,7 +75,7 @@ class WorkerController extends Controller
      * @param  \App\Worker  $worker
      * @return \Illuminate\Http\Response
      */
-    public function update(WorkerStoreRequest $request, Worker $worker)
+    public function update(WorkerUpdateRequest $request, Worker $worker)
     {
         $worker->update(
             $request->only(['name', 'employee_number'])
