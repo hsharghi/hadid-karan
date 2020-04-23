@@ -28,6 +28,8 @@ services:
     container_name: mysql
     restart: unless-stopped
     tty: true
+    ports:
+      - 3307:3306
     environment:
       MYSQL_DATABASE: hadid-karan
       MYSQL_USER: hadidkaran
