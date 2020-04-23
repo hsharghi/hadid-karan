@@ -28,7 +28,7 @@ class WorkerStoreRequest extends FormRequest
             'name' => 'sometimes|required',
             'employee_number' => [
                 'sometimes', 'required',
-                Rule::unique('workers')->ignore($this->route('worker')->id)
+                Rule::unique('workers')
             ],
         ];
     }
