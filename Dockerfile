@@ -3,7 +3,8 @@ FROM php:7.4-fpm-alpine
 WORKDIR /var/www
 
 RUN docker-php-ext-install pdo pdo_mysql
-RUN apk add netcat-openbsd
+RUN apk add netcat-openbsd shadow
+RUN usermod -u 1000 www-data
 
 COPY ./run.sh /tmp    
 COPY ./wait-for /tmp
