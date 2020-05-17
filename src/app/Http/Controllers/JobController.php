@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\JobStoreRequest;
+use App\Http\Requests\JobUpdateRequest;
 use App\Job;
 
 class JobController extends Controller
@@ -85,7 +86,7 @@ class JobController extends Controller
      * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function update(JobStoreRequest $request, Job $job)
+    public function update(JobUpdateRequest $request, Job $job)
     {
         $job->update(
             $request->only([
