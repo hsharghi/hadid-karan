@@ -16,7 +16,7 @@ class CreateMachineriesTable extends Migration
         Schema::create('machineries', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->enum('type', ['cnc', 'manual', 'mc']);
+            $table->enum('type', ['cnc', 'manual', 'nc']);
             $table->timestamps();
         });
     }
